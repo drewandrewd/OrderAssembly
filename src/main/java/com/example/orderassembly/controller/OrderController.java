@@ -14,7 +14,7 @@ public class OrderController {
     @Autowired
     private OrderService orderService;
 
-    @GetMapping("/orderInfo")
+    @GetMapping("/orders")
     public Map<String, List<Order>> getOrderInfoByOrderNumbers(@RequestParam List<Long> orderNumbers) {
         return orderService.getOrderInfoByOrderNumbers(orderNumbers);
     }

@@ -20,4 +20,12 @@ public class ProductShelfMappingService {
     public ProductShelfMapping createProductShelfMapping(ProductShelfMapping productShelfMapping) {
         return productShelfMappingRepository.save(productShelfMapping);
     }
+
+    public Long getShelfIdByProductId(Long productId) {
+        ProductShelfMapping productShelfMapping = productShelfMappingRepository.findByProductId(productId);
+        if (productShelfMapping != null) {
+            return productShelfMapping.getShelf().getId();
+        }
+        return null;
+    }
 }

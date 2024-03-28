@@ -20,4 +20,12 @@ public class ShelfService {
     public Shelf createShelf(Shelf shelf) {
         return shelfRepository.save(shelf);
     }
+
+    public String getShelfNameById(Long shelfId) {
+        Shelf shelf = shelfRepository.findById(shelfId).orElse(null);
+        if (shelf != null) {
+            return shelf.getName();
+        }
+        return null;
+    }
 }
